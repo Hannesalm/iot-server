@@ -66,7 +66,7 @@ function checkAlarm() {
       }
     });
     checkAlarm();
-  }, 1000);
+  }, 5000);
 }
 
 checkAlarm();
