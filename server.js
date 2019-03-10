@@ -17,10 +17,6 @@ dbconn.connect(function(err) {
   }
 });
 
-dbconn.end(function(err) {
-  // Function to close database connection
-});
-
 app.get("/", (req, res) => {
   res.send("IoT server is working");
 });
