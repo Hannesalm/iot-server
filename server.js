@@ -5,8 +5,8 @@ require("dotenv").config();
 
 var mysql = require("mysql");
 var dbconn = mysql.createConnection({
-  host: "localhost",
-  port: "8889",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   user: "root",
   password: "root",
   database: "iot"
