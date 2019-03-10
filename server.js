@@ -76,6 +76,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/alarm", (req, res) => {
+  console.log(req.body);
+
   var payload = {
     esp_id: req.body.esp_id,
     location: req.body.location,
