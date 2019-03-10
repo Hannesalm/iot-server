@@ -77,7 +77,7 @@ app.get("/", (req, res) => {
 
 app.post("/alarm", (req, res) => {
   console.log(req.body);
-
+  var now = moment().format("YYYY-MM-DD HH:mm:ss");
   var payload = {
     esp_id: req.body.esp_id,
     location: req.body.location,
