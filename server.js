@@ -76,7 +76,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/alarm/:esp_id/:location", (req, res) => {
-  console.log(req.params.esp_id);
   var now = moment().format("YYYY-MM-DD HH:mm:ss");
   var payload = {
     esp_id: req.params.esp_id,
@@ -89,6 +88,7 @@ app.get("/alarm/:esp_id/:location", (req, res) => {
     if (err) throw err;
   });
   res.send("Success");
+  console.log("Alarm triggered!");
 });
 
 app.listen(3000, () => console.log("IoT server listening on port 3000"));
