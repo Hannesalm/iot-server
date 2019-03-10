@@ -75,21 +75,20 @@ app.get("/", (req, res) => {
   res.send("IoT server is working");
 });
 
-app.post("/alarm", (req, res) => {
-  console.log(req.body);
+app.get("/alarm/:esp_id/:location", (req, res) => {
+  console.log(req.params.esp_id);
   var now = moment().format("YYYY-MM-DD HH:mm:ss");
   var payload = {
-    esp_id: req.body.esp_id,
-    location: req.body.location,
+    esp_id: req.params.esp_id,
+    location: req.params.location,
     inserted: now,
     status: "NEW"
   };
 
   dbconn.query("INSERT INTO alarms SET ?", payload, function(err, res) {
     if (err) throw err;
-
-    app.response("Success");
   });
+  res.send("Success");
 });
 
 app.listen(3000, () => console.log("IoT server listening on port 3000"));
