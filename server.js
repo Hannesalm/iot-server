@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("An alligator approaches!");
+  res.send("IoT server is working");
 });
 
 app.post("/post", (req, res) => {
