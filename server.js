@@ -40,9 +40,7 @@ function checkAlarm() {
       if (err) throw err;
       if (res.length > 0) {
         var id = res[0].id;
-        var CurrentDate = moment().format("YYYY-MM-DD HH:mm:ss");
-        console.log(CurrentDate);
-        var now = moment(res[0].inserted).format("YYYY-MM-DD HH:mm:ss");
+        var now = moment().format("YYYY-MM-DD HH:mm:ss");
 
         payload = {
           app_key: process.env.PUSHED_APP_KEY,
@@ -78,16 +76,17 @@ app.get("/", (req, res) => {
 });
 
 app.post("/alarm", (req, res) => {
-  dbconn.query("INSERT INTO alarms SET ?", req.body, function(err, res) {
-    if (err) throw err;
-  });
-});
+  var payload = {
+    esp_id: req.body.esp_id,
+    location: req.body.location,
+    inserted: now,
+    status: "NEW"
+  };
 
-app.post("/report", (req, res) => {
-  dbconn.query("INSERT INTO reports SET ?", req.body, function(err, res) {
+  dbconn.query("INSERT INTO alarms SET ?", payload, function(err, res) {
     if (err) throw err;
 
-    console.log("Last record insert id:", res.insertId);
+    app.response("Success");
   });
 });
 
