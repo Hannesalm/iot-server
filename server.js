@@ -69,7 +69,7 @@ function checkAlarm() {
   }, 5000);
 }
 
-checkAlarm();
+//checkAlarm();
 
 app.get("/", (req, res) => {
   res.send("IoT server is working");
