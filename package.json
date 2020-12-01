@@ -18,5 +18,8 @@
     "moment": "^2.24.0",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "firebase": "^8.1.1"
   }
 }
