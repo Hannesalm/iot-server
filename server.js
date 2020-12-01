@@ -95,7 +95,7 @@ app.get("/temperature/:id/:temp", (req, res) => {
   var now = moment().format("YYYY-MM-DD HH:mm:ss");
 
   var payload = {
-    id: req.params.id,
+    esp_id: req.params.id,
     temp: req.params.temp,
     date: now,
   };
