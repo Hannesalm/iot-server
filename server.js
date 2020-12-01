@@ -96,8 +96,8 @@ app.get("/temperature/:id/:temp", (req, res) => {
 
   var payload = {
     id: req.params.id,
-    location: req.params.temp,
-    inserted: now,
+    temp: req.params.temp,
+    date: now,
   };
 
   dbconn.query("INSERT INTO temperatures SET ?", payload, function (err, res) {
